@@ -28,13 +28,13 @@ To deploy and test this solution one needs a host machine with the following sof
 
 # Usage
 
-1. Clone the repository into proper location:
+Clone the repository into proper location:
 
 ```sh
 $ git clone https://github.com/bartekrutkowski/0x31337.git ~/
 ```
 
-2. Launch the vagrant provisioning:
+Launch the vagrant provisioning:
 
 ```sh
 $ cd ~/0x31337
@@ -57,7 +57,7 @@ web01                      : ok=14   changed=9    unreachable=0    failed=0
 $
 ```
 
-3. In case we'd want to change the application source and redeploy:
+In case we'd want to change the application source and redeploy:
 
 ```sh
 $ vi ansible/roles/app/files/app.go                                            $ vagrant provision
@@ -74,7 +74,7 @@ web01                      : ok=13   changed=0    unreachable=0    failed=0
 $
 ```
 
-4. To clean up after observing this wonder of DevOps technology:
+To clean up after observing this wonder of DevOps technology:
 
 ```sh
 $ vagrant destroy -f
@@ -82,7 +82,7 @@ $ cd
 $ rm -rf ~/0x31337
 ```
 
-5. You're done!
+You're done!
 
 
 # Epilogue
