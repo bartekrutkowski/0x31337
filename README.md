@@ -60,7 +60,8 @@ $
 In case we'd want to change the application source and redeploy:
 
 ```sh
-$ vi ansible/roles/app/files/app.go                                            $ vagrant provision
+$ vi ansible/roles/app/files/app.go                                            
+$ vagrant provision
 [... output stripped ...]
 PLAY RECAP *********************************************************************
 web01                      : ok=13   changed=0    unreachable=0    failed=0
