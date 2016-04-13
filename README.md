@@ -23,7 +23,7 @@ To deploy and test this solution one needs a host machine with the following sof
 - Vagrant 1.8.x
 - Oracle VirtualBox 5.0.x
 - Ansible 2.0.x
-- The ansible-galaxy module 'geerlingguy.nginx' 1.8.x
+  - The ansible-galaxy module 'geerlingguy.nginx' 1.8.x
 
 
 # Usage
