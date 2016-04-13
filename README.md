@@ -31,7 +31,7 @@ To deploy and test this solution one needs a host machine with the following sof
 Clone the repository into proper location:
 
 ```sh
-$ git clone https://github.com/bartekrutkowski/0x31337.git ~/
+$ git clone https://github.com/bartekrutkowski/0x31337.git ~/0x31337
 ```
 
 Launch the vagrant provisioning:
