@@ -1,0 +1,43 @@
+---
+
+- name: install required packages
+  yum: name="{{ item }}" state=installed
+  with_items:
+  - golang
+
+- name: create unprivileged user for the app
+  user:
+    name: "app"
+    shell: "/usr/sbin/nologin"
+    home: "/opt/app"
+    createhome: yes
+
+- name: create dirs for app lifecycle
+  file: dest="{{ item }}" state=directory owner=app group=app
+  with_items:
+  - "/opt/app/src"
+  - "/opt/app/bin"
+
+- name: create service file for the app
+  template:
+    src: service.j2
+    dest: "/etc/systemd/system/app.service"
+    group: root
+    owner: root
+    mode: 0540
+
+- name: copy the app source
+  copy: dest="/opt/app/src" src="app.go"
+  register: source
+
+- name: build the app from the source
+  command: /usr/bin/go build -o /opt/app/bin/app /opt/app/src/app.go
+  when: source.changed
+  notify: restart app
+
+- name: enable the app service
+  service:
+    name: app
+    state: started
+    enabled: yes
+

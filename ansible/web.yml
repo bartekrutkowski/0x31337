@@ -1,0 +1,33 @@
+---
+
+- hosts: all
+
+  pre_tasks:
+  - name: install required packages
+    yum:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+    - libsemanage-python
+  - name: set selinux to allow nginx upstream connections
+    seboolean:
+      name: httpd_can_network_connect
+      state: yes
+      persistent: yes
+
+  roles:
+  - role: geerlingguy.nginx
+    nginx_remove_default_vhost: true
+    nginx_vhosts:
+    - listen: "80 default_server"
+      server_name: example.com
+      extra_parameters: |
+        location / { proxy_pass http://app; }
+      access_log: "/var/log/nginx/example.com_access.log main"
+      error_log: "/var/log/nginx/example.com_error.log"
+    nginx_upstreams:
+    - name: app
+      servers: {
+        "172.16.128.20:8484",
+        "172.16.128.21:8484"
+      }

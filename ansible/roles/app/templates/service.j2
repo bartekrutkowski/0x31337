@@ -1,0 +1,12 @@
+[Unit]
+Description=Golang App
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/app
+ExecStart=/opt/app/bin/app
+User=app
+Group=app
+
+[Install]
+WantedBy=multi-user.target
