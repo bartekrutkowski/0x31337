@@ -90,7 +90,7 @@ You're done!
 
 Given the requirement were not mentioning any particular host/cloud platform to be used and asked for simplicity of the solution at the same time, the choice of Vagrant and VirtualBox was obvious considering today's technology. Shall this require deployment demonstration on one of available mainstream cloud platforms (like AWS or GCE) other tools could, and should, be used, like Terraform or Ansible for vm's provisioning.
 
-The configuration management Ansible code also isnt in production ready shape: the modules logic should not contain hardoded paths, IP addresses, the application code could be stored in external repository and fetched, and so on, and so fort. All imperfections in this code are actually somewhat intentional, following the mantra of 'make it work, make it right, make it fast' - the first part is considered to be enough for the purpose of this demonstration.
+The configuration management Ansible code also isnt in production ready shape: the modules logic should not contain hardcoded paths, IP addresses, the application code could be stored in external repository and fetched, and so on, and so forth. All imperfections in this code are actually somewhat intentional, following the mantra of 'make it work, make it right, make it fast' - the first part is considered to be enough for the purpose of this demonstration.
 
 
 # Additional resources
